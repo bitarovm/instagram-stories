@@ -2,3 +2,67 @@ body {
   margin: 0;
   background-color: #262626;
 }
+
+.player {
+  width: 370px;
+  margin: 0px auto;
+}
+
+.timeline {
+  display: flex;
+  margin: 5px 0px;
+}
+
+.timeline-chunk {
+  width: 100%;
+  height: 3px;
+  background-color: #717171;
+  border-radius: 2px;
+}
+
+.timeline-chunk + .timeline-chunk {
+  margin-left: 4px;
+}
+
+.timeline-chunk-active ~ .timeline-chunk > .timeline-chunk-inner {
+width: 0;
+}
+
+.timeline-chunk-inner {
+  height: inherit;
+  background-color: white;
+  border-radius: inherit;
+}
+
+.player-content {
+  position: relative;
+}
+
+
+.player-content img {
+  width: 100%;
+}
+
+.player-chunk-switcher {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+}
+
+.player-chunk-prev {
+  top: 0;
+  left: 0;
+}
+
+.player-chunk-next {
+  top: 0;
+  right: 0;
+}
+
+.player-chunk {
+  display: none;
+}
+
+.player-chunk-active {
+  display: block;
+}
