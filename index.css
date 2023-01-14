@@ -24,6 +24,7 @@ body {
   margin-left: 4px;
 }
 
+.timeline-chunk-active > .timeline-chunk-inner,
 .timeline-chunk-active ~ .timeline-chunk > .timeline-chunk-inner {
 width: 0;
 }
@@ -34,10 +35,9 @@ width: 0;
   border-radius: inherit;
 }
 
-.player-content {
+.player-content-wrapper {
   position: relative;
 }
-
 
 .player-content img {
   width: 100%;
