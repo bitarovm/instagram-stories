@@ -5,49 +5,26 @@
 	<meta charset="UTF-8">
 	<title>Player basis</title>
 	<link href="index.css" rel="stylesheet">
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<script src="index.js"></script>
 </head>
 
 <body>
-	<div class="player">
-		<div class="timeline">
-			<div class="timeline-chunk timeline-chunk-active">
-				<div class="timeline-chunk-inner"></div>
-			</div>
-			<div class="timeline-chunk">
-				<div class="timeline-chunk-inner"></div>
-			</div>
-			<div class="timeline-chunk">
-				<div class="timeline-chunk-inner"></div>
-			</div>
-			<div class="timeline-chunk">
-				<div class="timeline-chunk-inner"></div>
-			</div>
-		</div>
+	<div class="my-player">
 
-		<div class="player-content-wrapper">
-			<div class="player-chunk-switcher player-chunk-prev"></div>
-			<div class="player-chunk-switcher player-chunk-next"></div>
-
-			<div class="player-content">
-				<div class="player-chunk player-chunk-active">
-					<img src="img/chunk1.jpg" alt="Happy Dog1">
-				</div>
-				<div class="player-chunk">
-					<img src="img/chunk2.jpg" alt="Happy Dog2">
-				</div>
-				<div class="player-chunk">
-					<img src="img/chunk3.jpg" alt="Happy Dog3">
-				</div>
-				<div class="player-chunk">
-					<img src="img/chunk4.jpg" alt="Happy Dog3">
-				</div>
-			</div>
-		</div>
 	</div>
 
-	<script src="index.js"></script>
+	<script>
+		initPlayer({
+			target: '.my-player',
+			slides: [
+				{ url: 'img/chunk1.jpg', alt: 'Happy Dog1' },
+				{ url: 'img/chunk2.jpg', alt: 'Happy Dog2' },
+				{ url: 'img/chunk3.jpg', alt: 'Happy Dog3' },
+				{ url: 'img/chunk4.jpg', alt: 'Happy Dog4' }
+			],
+			delayPerSlide: 5
+		})
+	</script>
 </body>
 
 </html>
