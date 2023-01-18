@@ -52,7 +52,40 @@ function initPlayer(params) {
     return `
 <div class="player-chunk ${isFirst ? 'player-chunk-active' : ''}">
   <img src="${slide.url}" alt="${slide.alt || ''}">
+  ${generateOverlays(slide)}
 </div>`;
+  }
+
+  function generateOverlays(slide) {
+    if (slide.overlays === undefined) {
+      return '';
+    }
+
+    let res = '';
+
+    for (const overlay of slide.overlays) {
+      const styles = (overlay.styles ? Object.entries(overlay.styles) : [])
+        .map(st => st.join(':'))
+        .join(';');
+
+      res += `
+<div class="player-chunk-overlay" style="${styles}">${renderOverlay(overlay)}
+</div>`;
+    }
+
+    return res;
+
+    function renderOverlay(overlay) {
+      if (overlay.type === 'text') {
+        return overlay.value;
+      }
+
+      if (overlay.type === 'img') {
+        return `<img src="${overlay.value}" alt="">`;
+      }
+
+      return '';
+    }
   }
 
   function generatePlayerLayout() {
