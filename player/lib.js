@@ -49,9 +49,15 @@ function initPlayer(params) {
   }
 
   function generatePlayerChunk(slide, isFirst) {
+    const style = [];
+
+    if (slide.filter) {
+      style.push(`filter: ${slide.filter.join(' ')}`)
+    }
+
     return `
 <div class="player-chunk ${isFirst ? 'player-chunk-active' : ''}">
-  <img src="${slide.url}" alt="${slide.alt || ''}">
+  <img src="${slide.url}" alt="${slide.alt || ''}" style="${style.join(';')}">
   ${generateOverlays(slide)}
 </div>`;
   }
@@ -64,12 +70,14 @@ function initPlayer(params) {
     let res = '';
 
     for (const overlay of slide.overlays) {
+      const classes = overlay.classes ? overlay.classes.join(' ') : '';
+
       const styles = (overlay.styles ? Object.entries(overlay.styles) : [])
         .map(st => st.join(':'))
         .join(';');
 
       res += `
-<div class="player-chunk-overlay" style="${styles}">${renderOverlay(overlay)}
+<div class="player-chunk-overlay ${classes}" style="${styles}">${renderOverlay(overlay)}
 </div>`;
     }
 
@@ -82,6 +90,17 @@ function initPlayer(params) {
 
       if (overlay.type === 'img') {
         return `<img src="${overlay.value}" alt="">`;
+      }
+
+      if (overlay.type === 'question') {
+        return `
+<div class="question">
+  ${overlay.question}
+  <div class="question-answers">
+    <button value="1">${overlay.variants[0] || 'Да'}</button>
+    <button value="2">${overlay.variants[1] || 'Нет'}</button>
+  </div>
+</div>`;
       }
 
       return '';
