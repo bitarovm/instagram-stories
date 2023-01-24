@@ -1,13 +1,16 @@
-initPlayer({
+import Player from './player/lib.js';
+
+new Player({
   target: '.my-player',
+  delayPerSlide: 5,
   slides: [
     {
       url: 'img/chunk1.jpg',
       alt: 'Happy Dog1',
       overlays: [
         {
-          type: 'text',
-          value: 'Привет',
+          type: 'Text',
+          text: 'Привет',
           styles: {
             color: 'orange',
             'font-size': '60px',
@@ -15,12 +18,12 @@ initPlayer({
             top: '60%',
             left: '30%',
             transform: 'rotate(-30deg)',
-            animation: 'scale 2s infinite ease-in-out'
-          }
+            animation: 'scale 2s infinite ease-in-out',
+          },
         },
         {
-          type: 'text',
-          value: 'мир',
+          type: 'Text',
+          text: 'мир',
           styles: {
             color: 'orange',
             'font-size': '30px',
@@ -28,11 +31,10 @@ initPlayer({
             bottom: '10%',
             right: '30%',
             transform: 'rotate(90deg)',
-            animation: 'scale 6s infinite ease-in-out'
-          }
-        }
-      ]
-
+            animation: 'scale 6s infinite ease-in-out',
+          },
+        },
+      ],
     },
     {
       url: 'img/chunk2.jpg',
@@ -40,34 +42,56 @@ initPlayer({
       filter: ['contrast(150%)', 'blur(5px)'],
       overlays: [
         {
-          type: 'text',
-          value: 'Собака - лучший друг человека!',
+          type: 'Text',
+          text: 'Собака - лучший друг человека!',
           classes: ['watercolor'],
           styles: {
             'font-size': '40px',
             top: '60%',
             left: '10%',
-          }
+          },
         },
         {
-          type: 'question',
+          type: 'Question',
           question: 'Вы со мной согласны?',
           variants: ['Да', 'Нет'],
           styles: {
             top: '80%',
             left: '25%',
-          }
-        }
-      ]
+          },
+        },
+      ],
     },
     {
       url: 'img/chunk3.jpg',
-      alt: 'Happy Dog3'
+      alt: 'Happy Dog3',
+      overlays: [
+        {
+          type: 'Text',
+          text: 'Миру - мир! Любовь и радуга!',
+          classes: ['watercolor'],
+          styles: {
+            top: '50%',
+            left: '10%',
+          },
+        },
+      ],
     },
     {
       url: 'img/chunk4.jpg',
-      alt: 'Happy Dog4'
-    }
+      alt: 'Happy Dog4',
+      overlays: [
+        {
+          type: 'Text',
+          text: 'Пейте чистую воду!',
+          classes: ['watercolor'],
+          styles: {
+            'font-size': '20px',
+            top: '30%',
+            left: '20%',
+          },
+        },
+      ],
+    },
   ],
-  delayPerSlide: 5
-})
+});
